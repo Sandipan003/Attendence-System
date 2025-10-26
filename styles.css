@@ -1,0 +1,963 @@
+/* Modern Mobile-First Class Attendance System Styles */
+
+/* Custom Properties */
+:root {
+  --primary-blue: #3b82f6;
+  --primary-indigo: #6366f1;
+  --primary-green: #10b981;
+  --primary-emerald: #059669;
+  --primary-red: #ef4444;
+  --primary-pink: #ec4899;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  color: var(--gray-800);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Mobile-First Responsive Design */
+@media (max-width: 640px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .text-responsive {
+    font-size: 0.875rem;
+  }
+  
+  .button-responsive {
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+  }
+  
+  .input-responsive {
+    padding: 0.75rem;
+    font-size: 1rem;
+  }
+}
+
+/* Toast Notifications */
+.toast {
+  @apply transform transition-all duration-300 ease-in-out;
+  animation: slideInRight 0.3s ease-out;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.toast.fade-out {
+  animation: slideOutRight 0.3s ease-in;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* Toast Variants */
+.toast-success {
+  @apply bg-green-50/90 border border-green-200 text-green-800;
+}
+
+.toast-error {
+  @apply bg-red-50/90 border border-red-200 text-red-800;
+}
+
+.toast-info {
+  @apply bg-blue-50/90 border border-blue-200 text-blue-800;
+}
+
+/* Timer Animations */
+.timer-warning {
+  @apply text-red-600 font-bold;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Form Animations */
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Interactive Elements */
+.interactive {
+  @apply cursor-pointer select-none;
+  transition: all 0.2s ease;
+}
+
+.interactive:active {
+  @apply transform scale-95;
+}
+
+/* Button Hover Effects */
+.btn-hover {
+  @apply transition-all duration-200 transform hover:scale-105 active:scale-95;
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  @apply bg-gray-100 rounded-full;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 rounded-full hover:bg-gray-400;
+}
+
+/* Loading States */
+.loading {
+  @apply animate-spin;
+}
+
+.skeleton {
+  @apply bg-gray-200 animate-pulse rounded;
+}
+
+/* Form States */
+.form-disabled {
+  @apply opacity-60 pointer-events-none;
+}
+
+.form-error {
+  @apply border-red-500 focus:ring-red-500 focus:border-red-500;
+}
+
+.form-success {
+  @apply border-green-500 focus:ring-green-500 focus:border-green-500;
+}
+
+/* Slot Status Indicators */
+.slot-open {
+  @apply bg-green-50 border-green-200 text-green-800;
+}
+
+.slot-closed {
+  @apply bg-red-50 border-red-200 text-red-800;
+}
+
+/* Status Badges */
+.status-badge {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+}
+
+.status-open {
+  @apply bg-green-100 text-green-800;
+}
+
+.status-closed {
+  @apply bg-red-100 text-red-800;
+}
+
+.status-warning {
+  @apply bg-yellow-100 text-yellow-800;
+}
+
+/* Attendance List Items */
+.attendance-item {
+  @apply transition-colors duration-200 hover:bg-gray-50;
+}
+
+.attendance-item:hover {
+  @apply bg-blue-50/50;
+}
+
+/* Counter Styling */
+.counter {
+  @apply inline-flex items-center justify-center w-8 h-8 bg-blue-100 text-blue-800 rounded-full text-sm font-bold;
+}
+
+/* Empty State */
+.empty-state {
+  @apply text-center py-8 text-gray-500;
+}
+
+.empty-state svg {
+  @apply w-12 h-12 mx-auto mb-4 text-gray-300;
+}
+
+/* Success State */
+.success-state {
+  @apply text-center py-8 text-green-600;
+}
+
+.success-state svg {
+  @apply w-12 h-12 mx-auto mb-4 text-green-500;
+}
+
+/* Error State */
+.error-state {
+  @apply text-center py-8 text-red-600;
+}
+
+.error-state svg {
+  @apply w-12 h-12 mx-auto mb-4 text-red-500;
+}
+
+/* Time Display */
+.time-display {
+  @apply font-mono text-lg font-semibold;
+}
+
+/* Gradient Backgrounds */
+.gradient-blue {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.gradient-green {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+}
+
+/* Backdrop Blur Support */
+.backdrop-blur {
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+/* Text Shadow */
+.text-shadow {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Shadows */
+.card-shadow {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.card-shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Focus States for Accessibility */
+.focus-ring {
+  @apply focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 640px) {
+  .mobile-padding {
+    @apply px-4 py-2;
+  }
+  
+  .mobile-text {
+    @apply text-sm;
+  }
+  
+  .mobile-grid {
+    @apply grid-cols-1;
+  }
+  
+  .mobile-button-group {
+    @apply flex-col space-x-0 space-y-2;
+  }
+  
+  .mobile-button-group button,
+  .mobile-button-group span {
+    @apply w-full;
+  }
+  
+  /* Mobile-specific toast positioning */
+  #toast-container {
+    @apply top-2 right-2 left-2 max-w-none;
+  }
+  
+  /* Mobile form spacing */
+  .mobile-form {
+    @apply space-y-3;
+  }
+  
+  /* Mobile header adjustments */
+  .mobile-header {
+    @apply py-3;
+  }
+  
+  .mobile-header h1 {
+    @apply text-lg;
+  }
+  
+  /* Mobile footer optimizations */
+  footer {
+    @apply mt-8;
+  }
+  
+  footer .flex-col {
+    @apply space-y-3;
+  }
+  
+  footer .text-sm {
+    @apply text-xs;
+  }
+  
+  footer .text-xs {
+    @apply text-xs;
+  }
+  
+  /* Mobile footer links */
+  footer a {
+    @apply text-sm;
+  }
+  
+  /* Mobile footer spacing */
+  footer .space-x-4 {
+    @apply space-x-2;
+  }
+  
+  footer .space-x-1 {
+    @apply space-x-1;
+  }
+}
+
+/* Tablet Optimizations */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .tablet-grid {
+    @apply grid-cols-2;
+  }
+  
+  .tablet-spacing {
+    @apply space-y-4;
+  }
+}
+
+/* Desktop Optimizations */
+@media (min-width: 1025px) {
+  .desktop-grid {
+    @apply grid-cols-3;
+  }
+  
+  .desktop-spacing {
+    @apply space-y-6;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .high-contrast {
+    @apply border-2 border-gray-900;
+  }
+  
+  .high-contrast-text {
+    @apply text-gray-900 font-bold;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .toast,
+  .fade-in,
+  .btn-hover,
+  .timer-warning,
+  .interactive {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-break {
+    page-break-after: always;
+  }
+  
+  body {
+    @apply bg-white text-black;
+  }
+  
+  .card-shadow,
+  .card-shadow-lg {
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+}
+
+/* Dark Mode Support (Future Enhancement) */
+@media (prefers-color-scheme: dark) {
+  .dark-mode {
+    @apply bg-gray-900 text-white;
+  }
+  
+  .dark-mode .card {
+    @apply bg-gray-800 border-gray-700;
+  }
+}
+
+/* Custom Animations */
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.bounce-in {
+  animation: bounceIn 0.6s ease;
+}
+
+/* Smooth Transitions */
+.smooth-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Glass Morphism Effect */
+.glass {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Custom Focus Styles */
+input:focus,
+select:focus,
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Accessibility Improvements */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Loading Spinner */
+.spinner {
+  @apply animate-spin rounded-full border-2 border-gray-300 border-t-blue-600;
+}
+
+/* Success Checkmark */
+.checkmark {
+  @apply w-6 h-6 text-green-600;
+}
+
+/* Error X Mark */
+.x-mark {
+  @apply w-6 h-6 text-red-600;
+}
+
+/* Info Icon */
+.info-icon {
+  @apply w-6 h-6 text-blue-600;
+}
+
+/* Welcome Message Styles */
+.welcome-message {
+  @apply bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-4;
+}
+
+.welcome-greeting {
+  @apply text-lg font-semibold text-blue-800;
+}
+
+.welcome-time-info {
+  @apply text-sm text-blue-600;
+}
+
+/* Auto Refresh Styles */
+.auto-refresh-container {
+  @apply bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-200 rounded-xl p-4;
+}
+
+.refresh-status-on {
+  @apply text-xs text-green-600;
+}
+
+.refresh-status-off {
+  @apply text-xs text-gray-500;
+}
+
+/* Analytics Dashboard Styles */
+.analytics-container {
+  @apply bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-xl p-4;
+}
+
+.analytics-card {
+  @apply bg-white/70 rounded-lg p-4 text-center;
+}
+
+.analytics-number {
+  @apply text-2xl font-bold;
+}
+
+.analytics-label {
+  @apply text-sm text-gray-600;
+}
+
+/* Public Attendance View Styles */
+.public-attendance-container {
+  @apply bg-gradient-to-r from-orange-50 to-red-50 border border-orange-200 rounded-xl p-4;
+}
+
+.public-attendance-header {
+  @apply bg-gradient-to-r from-orange-600 to-red-600 p-6;
+}
+
+.privacy-toggle {
+  @apply flex items-center space-x-2 cursor-pointer;
+}
+
+/* Enhanced Error Handling Styles */
+.form-error-state {
+  @apply border-red-500 bg-red-50;
+}
+
+.form-success-state {
+  @apply border-green-500 bg-green-50;
+}
+
+.submission-loading {
+  @apply opacity-75 pointer-events-none;
+}
+
+/* Animation for new features */
+@keyframes slideInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-up {
+  animation: slideInUp 0.3s ease-out;
+}
+
+/* Auto-refresh indicator */
+.refresh-indicator {
+  @apply inline-block w-2 h-2 bg-green-500 rounded-full animate-pulse;
+}
+
+/* Privacy mode indicator */
+.privacy-indicator {
+  @apply inline-block w-2 h-2 bg-orange-500 rounded-full;
+}
+
+/* Analytics chart placeholder */
+.analytics-chart {
+  @apply bg-white/50 rounded-lg p-4 text-center;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Today's Summary Styles */
+.today-summary-card {
+  @apply bg-gradient-to-r from-indigo-50 to-purple-50 border border-indigo-200 rounded-xl p-4;
+}
+
+.today-summary-count {
+  @apply text-3xl font-bold text-indigo-600;
+}
+
+.class-size-input {
+  @apply w-16 px-2 py-1 text-sm border border-gray-300 rounded focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500;
+}
+
+/* Mini Chart Styles */
+.mini-chart-container {
+  @apply bg-white/70 rounded-lg p-4;
+}
+
+.mini-chart-bar {
+  @apply w-4 h-4 rounded transition-colors duration-300;
+}
+
+.mini-chart-bar-filled {
+  @apply bg-green-500;
+}
+
+.mini-chart-bar-empty {
+  @apply bg-gray-200;
+}
+
+/* Punctual Students Styles */
+.punctual-student-card {
+  @apply flex items-center justify-between p-2 rounded-lg border;
+}
+
+.punctual-student-on-time {
+  @apply bg-green-50 border-green-200;
+}
+
+.punctual-student-late {
+  @apply bg-orange-50 border-orange-200;
+}
+
+.punctual-student-rank {
+  @apply w-6 h-6 bg-yellow-100 text-yellow-800 rounded-full flex items-center justify-center text-xs font-bold;
+}
+
+.punctual-student-name-on-time {
+  @apply text-sm font-medium text-green-800;
+}
+
+.punctual-student-name-late {
+  @apply text-sm font-medium text-orange-800;
+}
+
+.punctual-student-time {
+  @apply text-xs text-gray-500;
+}
+
+.punctual-student-status-on-time {
+  @apply text-xs text-green-600 font-medium;
+}
+
+.punctual-student-status-late {
+  @apply text-xs text-orange-600 font-medium;
+}
+
+/* Copy Button Styles */
+.copy-button {
+  @apply bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-3 py-1 rounded-lg text-sm font-medium transition-all duration-200 flex items-center space-x-1;
+}
+
+/* Late Mark Highlighting */
+.late-mark {
+  @apply text-orange-600 bg-orange-50 border-orange-200;
+}
+
+.on-time-mark {
+  @apply text-green-600 bg-green-50 border-green-200;
+}
+
+/* Mobile optimizations for new features */
+@media (max-width: 640px) {
+  .welcome-message {
+    @apply p-3;
+  }
+  
+  .analytics-container {
+    @apply p-3;
+  }
+  
+  .public-attendance-container {
+    @apply p-3;
+  }
+  
+  .analytics-card {
+    @apply p-3;
+  }
+  
+  .analytics-number {
+    @apply text-xl;
+  }
+  
+  .analytics-label {
+    @apply text-xs;
+  }
+  
+  .today-summary-card {
+    @apply p-3;
+  }
+  
+  .today-summary-count {
+    @apply text-2xl;
+  }
+  
+  .mini-chart-container {
+    @apply p-3;
+  }
+  
+  .punctual-student-card {
+    @apply p-2;
+  }
+  
+  .class-size-input {
+    @apply w-12 text-xs;
+  }
+}
+
+/* Security Features Styles */
+.security-alerts-container {
+  @apply bg-red-50 border border-red-200 rounded-lg p-3;
+}
+
+.security-alert-item {
+  @apply flex items-start space-x-2 p-2 bg-red-100 rounded-lg mb-2;
+}
+
+.security-alert-icon {
+  @apply w-4 h-4 text-red-600 mt-0.5 flex-shrink-0;
+}
+
+.security-alert-message {
+  @apply text-sm font-medium text-red-800;
+}
+
+.security-alert-details {
+  @apply text-xs text-red-600;
+}
+
+.security-alert-timestamp {
+  @apply text-xs text-red-500;
+}
+
+/* Duplicate Entry Highlighting */
+.duplicate-entry {
+  @apply bg-red-50 border-red-200;
+}
+
+.duplicate-entry-text {
+  @apply text-red-800;
+}
+
+.duplicate-warning {
+  @apply text-xs text-red-600 font-medium;
+}
+
+/* Suspicious IP Highlighting */
+.suspicious-ip-entry {
+  @apply bg-orange-50 border-orange-200;
+}
+
+.suspicious-ip-text {
+  @apply text-orange-800;
+}
+
+.suspicious-ip-warning {
+  @apply text-xs text-orange-600 font-medium;
+}
+
+/* Security Alert Styles */
+.security-alert-red {
+  @apply bg-red-50 border-red-200;
+}
+
+.security-alert-orange {
+  @apply bg-orange-50 border-orange-200;
+}
+
+.security-alert-yellow {
+  @apply bg-yellow-50 border-yellow-200;
+}
+
+/* Proxy Alert Specific Styles */
+.proxy-alert-container {
+  @apply bg-red-50 border border-red-200 rounded-lg p-3;
+}
+
+.proxy-alert-header {
+  @apply flex items-center space-x-2 mb-2;
+}
+
+.proxy-alert-icon {
+  @apply w-5 h-5 text-red-600;
+}
+
+.proxy-alert-title {
+  @apply text-sm font-semibold text-red-800;
+}
+
+.proxy-alert-content {
+  @apply text-sm text-red-700;
+}
+
+.proxy-alert-item {
+  @apply flex items-start space-x-2 p-2 bg-red-100 border border-red-300 rounded-lg mb-2;
+}
+
+.proxy-alert-item-icon {
+  @apply w-4 h-4 mt-0.5 flex-shrink-0 text-red-600;
+}
+
+.proxy-alert-message {
+  @apply text-sm font-medium text-red-800;
+}
+
+.proxy-alert-details {
+  @apply text-xs text-red-600;
+}
+
+.proxy-alert-timestamp {
+  @apply text-xs text-red-500;
+}
+
+/* Manual Edit Styles */
+.edit-modal {
+  @apply fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4;
+}
+
+.edit-modal-content {
+  @apply bg-white rounded-xl shadow-xl max-w-md w-full max-h-96 overflow-y-auto;
+}
+
+.edit-form-input {
+  @apply w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500;
+}
+
+.edit-save-btn {
+  @apply flex-1 bg-gradient-to-r from-yellow-600 to-orange-600 hover:from-yellow-700 hover:to-orange-700 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-200;
+}
+
+.edit-delete-btn {
+  @apply flex-1 bg-gradient-to-r from-red-600 to-pink-600 hover:from-red-700 hover:to-pink-700 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-200;
+}
+
+/* Confirmation Modal Styles */
+.confirmation-modal {
+  @apply fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4;
+}
+
+.confirmation-modal-content {
+  @apply bg-white rounded-xl shadow-xl max-w-md w-full;
+}
+
+.confirmation-icon {
+  @apply w-10 h-10 bg-red-100 rounded-full flex items-center justify-center;
+}
+
+.confirmation-title {
+  @apply text-lg font-semibold text-gray-900;
+}
+
+.confirmation-message {
+  @apply text-gray-700 mb-6;
+}
+
+.confirmation-confirm-btn {
+  @apply flex-1 bg-gradient-to-r from-red-600 to-pink-600 hover:from-red-700 hover:to-pink-700 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-200;
+}
+
+.confirmation-cancel-btn {
+  @apply flex-1 bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-200;
+}
+
+/* Edited Record Indicator */
+.edited-record {
+  @apply text-xs text-blue-600 font-medium;
+}
+
+/* Security Status Indicators */
+.security-status-clean {
+  @apply text-green-600;
+}
+
+.security-status-warning {
+  @apply text-yellow-600;
+}
+
+.security-status-danger {
+  @apply text-red-600;
+}
+
+/* Individual Edit Buttons */
+.edit-student-btn {
+  @apply text-xs bg-yellow-100 hover:bg-yellow-200 text-yellow-800 px-2 py-1 rounded transition-colors duration-200;
+}
+
+.edit-student-btn:hover {
+  @apply bg-yellow-200 text-yellow-900;
+}
+
+.edit-student-btn:active {
+  @apply bg-yellow-300 transform scale-95;
+}
+
+/* Enhanced Attendance Item Styles */
+.attendance-item {
+  @apply transition-all duration-200;
+}
+
+.attendance-item:hover {
+  @apply bg-gray-50;
+}
+
+.attendance-item.duplicate-entry:hover {
+  @apply bg-red-100;
+}
+
+/* Edit Button Container */
+.edit-button-container {
+  @apply flex items-center space-x-2;
+}
+
+/* Mobile optimizations for edit buttons */
+@media (max-width: 640px) {
+  .edit-student-btn {
+    @apply text-xs px-1.5 py-0.5;
+  }
+  
+  .edit-button-container {
+    @apply flex-col space-x-0 space-y-1;
+  }
+}
