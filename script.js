@@ -136,8 +136,8 @@ const elements = {
 const { createClient } = window.supabase;
 
 // Fixed Supabase credentials
-const SUPABASE_URL = 'https://ergyqzepzzgbyxbyvshc.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVyZ3lxemVwenpnYnl4Ynl2c2hjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjExNDIzNjksImV4cCI6MjA3NjcxODM2OX0.XBESvbk-qaFQUuMvJlvKY9lzL0cpXs2TeLLajGqyR6M';
+const SUPABASE_URL = 'https://ysiocxbkbljkhmigwvwt.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlzaW9jeGJrYmxqa2htaWd3dnd0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE0OTIxNTcsImV4cCI6MjA3NzA2ODE1N30.R3WbySkUUH_FgNI2N9npmwBWRMKKhFBwtHI3fx6sb2s';
 
 console.log('🔗 Supabase URL:', SUPABASE_URL);
 console.log('🔑 Supabase Key (first 20 chars):', SUPABASE_ANON_KEY.substring(0, 20) + '...');
@@ -1954,4 +1954,5 @@ if (typeof module !== 'undefined' && module.exports) {
         formatTimeSlot,
         hashPassword
     };
+
 }
